@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data } = await client.query({
     query: gql`
       query Countries {
@@ -21,7 +21,7 @@ export async function getStaticProps() {
     props: {
       countries: data.countries.slice(0, 4),
     },
- };
+  };
 }
 
 export default function Home({countries}) {

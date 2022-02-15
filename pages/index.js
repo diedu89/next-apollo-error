@@ -24,7 +24,6 @@ const getData = async () => {
     const formattedErrors = isApolloError(error)
       ? error.graphQLErrors.map((error) => error.message)
       : [`Unhandled error : ${error}`];
-    console.log(error)
     return {
       errors: formattedErrors,
     };
